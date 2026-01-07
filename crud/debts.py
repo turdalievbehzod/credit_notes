@@ -2,6 +2,12 @@ from core.db_settings import execute_query
 
 
 def add_debt(user_id: int) -> None:
+    """
+    managing your balance by adding/getting debts
+    
+    :param user_id: current user that logged in
+    :type user_id: int
+    """
     print("1 - lend money (I gave)")
     print("2 - owe money (I took)")
     choice = input("Choose action: ").strip()
@@ -16,7 +22,6 @@ def add_debt(user_id: int) -> None:
         return
 
     if choice == "1":
-        # история
         execute_query(
             """
             INSERT INTO transactions (user_id, type, amount)
@@ -25,7 +30,7 @@ def add_debt(user_id: int) -> None:
             (user_id, amount)
         )
 
-        # итог
+        
         execute_query(
             """
             UPDATE debts
@@ -60,6 +65,12 @@ def add_debt(user_id: int) -> None:
     print("transaction saved successfully")
 
 def show_my_debt(user_id: int) -> None:
+    """
+    shows how much you gave and took, additionally, indicating your balance from those transactions
+    
+    :param user_id: current user that logged in
+    :type user_id: int
+    """
     row = execute_query(
         """
         SELECT

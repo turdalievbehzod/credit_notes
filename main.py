@@ -4,6 +4,9 @@ from crud.debts import add_debt, show_my_debt, show_history
 
 
 def print_menu() -> None:
+    """
+    shows a menu with options
+    """
     print("\nMenu:")
     print("1 - add debts")
     print("2 - show my balance")
@@ -12,6 +15,9 @@ def print_menu() -> None:
 
 
 def main() -> None:
+    """
+    collects common functions
+    """
     create_tables()
 
     print("Sign up")
